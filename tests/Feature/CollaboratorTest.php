@@ -7,16 +7,17 @@ use App\Models\User;
 use App\Models\Collaborator;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
+
 class CollaboratorTest extends TestCase
 {
-    // use RefreshDatabase;
+    use RefreshDatabase;
 
     private function authenticatedUser()
     {
         $user = User::factory()->create();
         $this->actingAs($user, 'sanctum');
     }
-
+    
     public function test_user_can_access_collaborators_module()
     {
         $this->authenticatedUser();

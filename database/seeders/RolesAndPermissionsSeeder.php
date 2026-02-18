@@ -10,7 +10,7 @@ class RolesAndPermissionsSeeder extends Seeder
 {
     public function run(): void
     {
-        // 🔄 Limpiar cache de permisos
+        //  Limpiar cache de permisos
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
         /*crea los permisoss*/
@@ -35,7 +35,6 @@ class RolesAndPermissionsSeeder extends Seeder
 
         /*permisos a roles*/
 
-        // Admin - todos los permisos
         $admin->givePermissionTo(Permission::all());
 
         // HR - gestión operativa
@@ -46,7 +45,6 @@ class RolesAndPermissionsSeeder extends Seeder
             'terminate contracts',
         ]);
 
-        // Viewer - solo lectura
         $viewer->givePermissionTo([
             'view reports',
         ]);
